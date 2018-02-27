@@ -3,11 +3,11 @@
 	include_once("../inc/connection.php");
 	$obj=new connection();
 	$obj->connect();
-	 
+	
 if(isset($_POST["access_token"]))
 {
 	$email = mysqli_real_escape_string($obj->con, $_POST["email_address"]);
-	$obj->query="select * from users where email_id='".email."'";
+	$obj->query="select * from users where email_id='".$email."'";
 	$obj->select($obj->query);
 	$no = mysqli_num_rows($obj->result);
 	$user = mysqli_fetch_assoc($obj->result);
@@ -64,7 +64,7 @@ if(isset($_POST["access_token"]))
 }else{
 	$returnArray = array(
 				'status' => "error",
-				'message' => 'no access token given',
+				'message' => 'no access token is provided',
 				);
 }
 echo json_encode($returnArray);
