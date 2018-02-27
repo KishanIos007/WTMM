@@ -5,7 +5,7 @@ class connection
 	function connect()
 	{
 		$this->con=mysqli_connect("localhost","root","");
-		$this->db=mysqli_select_db($this->con,"kishan");
+		$this->db=mysqli_select_db($this->con,"wtmm");
 	}
 	
 	function update_delete($str)
@@ -30,7 +30,7 @@ class connection
 	function select($str)
 	{
 		$this->query=$str;
-		$this->result=mysqli_query($this->con,$this->query);
+		$this->result = mysqli_query($this->con,$this->query);
 	}
 }
 ?>

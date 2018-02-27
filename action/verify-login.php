@@ -17,7 +17,7 @@ if(isset($_POST["access_token"]))
 							first_name = '".mysqli_real_escape_string($obj->con, $_POST["firstname"])."',
 							image_url = '".mysqli_real_escape_string($obj->con, $_POST["image_url"])."',
 							access_token = '".mysqli_real_escape_string($obj->con, $_POST["access_token"])."',
-							updated_at = 'NOW()'
+							updated_at = NOW()
 							WHERE email_id = '".$email."'";
 		$status = $obj->update_delete($sql_query);
 		if($status){
@@ -37,12 +37,13 @@ if(isset($_POST["access_token"]))
 		}
 	}else
 	{
-		$sql_query = "insert into users 
-						('first_name','email_id','image_url','role_id','status','access_token','created_at','updated_at')
-						VALUES('".mysqli_real_escape_string($obj->con, $_POST["firstname"])."',
+		$sql_query = "INSERT INTO `users`(`first_name`, `email_id`, `image_url`, `role_id`, `status`, `access_token`, `created_at`, `updated_at`) VALUES ('".mysqli_real_escape_string($obj->con, $_POST["firstname"])."',
 						'".$email."','".mysqli_real_escape_string($obj->con, $_POST["image_url"])."','2','1',
-						'".mysqli_real_escape_string($obj->con, $_POST["access_token"])."','NOW()','NOW()'
+						'".mysqli_real_escape_string($obj->con, $_POST["access_token"])."',NOW(),NOW()
 						)";
+		echo "<pre>";
+		echo $sql_query;
+		exit;
 		$insert_id = $obj->insert_with_id($obj->query);
 		if($insert_id){
 			$returnArray = array(
