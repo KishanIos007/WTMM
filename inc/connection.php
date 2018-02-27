@@ -8,11 +8,20 @@ class connection
 		$this->db=mysqli_select_db($this->con,"kishan");
 	}
 	
-	function insert_update_delete($str)
+	function update_delete($str)
 	{
 		$this->query=$str;
 		if(mysqli_query($this->con,$this->query)){
 			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function insert_with_id($str){
+		$this->query=$str;
+		if(mysqli_query($this->con,$this->query)){
+			return mysqli_insert_id($this->con);
 		}else{
 			return false;
 		}
