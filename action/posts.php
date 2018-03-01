@@ -4,6 +4,24 @@
 	$obj=new connection();
 	$obj->connect();
 	 $returnArray = array();
+if(isset($_POST['title'])){
+	$posts = array();
+	$obj->query="INSERT INTO `posts`(`title`, `small_description`, `description`)". 
+	"VALUES ('".$_POST['title']."','".$_POST['small_desc']."','".$_POST['desc']."')";
+	
+	$insert_id = $obj->insert_with_id($obj->query);
+		if($insert_id){
+			$returnArray = array(
+				'id' => $insert_id
+				);
+		}else{
+			$returnArray = array(
+				'status' => "error",
+				'message' => 'unable to insert record',
+				'access_token' => $_POST['access_token']
+				);
+		}
+}
 if(isset($_POST["type"]) && $_POST["type"] == "all")
 {
 	$posts = array();

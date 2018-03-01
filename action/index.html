@@ -7,13 +7,13 @@
     <input type="submit" value="Add user" />
     
 </form>
-<form method="post" action="verify-login.php">
-    Access Token : <input type="text" name="access_token"/>
-    Email Address : <input type="email" name="email_address"/>
-    Image Url : <input type="text" name="image_url" />
-    First Name : <input type="text" name="firstname" />
-    <input type="submit" value="Add user" />
-    
+<form method="post" action="posts.php">
+   title : <input type="text" name="title" />
+   <br/>
+   small description : <textarea rows="10" cols="150" name="small_desc"></textarea><br>
+    description : <textarea rows="10" cols="150" name="desc"></textarea><br>
+    <!-- image url (img/way/imagename): <input type="text" name="image_url" /> -->
+    <input type="submit" value="Add post"/>
 </form>
 
 </html>

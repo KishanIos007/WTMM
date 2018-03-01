@@ -5,7 +5,7 @@ class connection
 	function connect()
 	{
 		$this->con=mysqli_connect("localhost","root","");
-		$this->db=mysqli_select_db($this->con,"wtmm");
+		$this->db=mysqli_select_db($this->con,"WTMM");
 	}
 	
 	function update_delete($str)

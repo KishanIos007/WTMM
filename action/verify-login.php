@@ -41,10 +41,7 @@ if(isset($_POST["access_token"]))
 						'".$email."','".mysqli_real_escape_string($obj->con, $_POST["image_url"])."','2','1',
 						'".mysqli_real_escape_string($obj->con, $_POST["access_token"])."',NOW(),NOW()
 						)";
-		echo "<pre>";
-		echo $sql_query;
-		exit;
-		$insert_id = $obj->insert_with_id($obj->query);
+		$insert_id = $obj->insert_with_id($sql_query);
 		if($insert_id){
 			$returnArray = array(
 				'id' => $insert_id,
